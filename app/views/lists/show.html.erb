@@ -2,5 +2,16 @@
 
 <h2>Batman</h2>
 
+<ul>
+  <% @list.bookmarks.each do |bookmark| %>
+    <div>
+      <li><%= bookmark.movie.title %></li>
+      <%= image_tag bookmark.movie.poster_url, class:"img-thumbnail" %></image_tag>
+      <li><%= bookmark.comment %></li>
+    </div>
+    <%= link_to "delete bookmark", bookmark_path(bookmark)%>
+  <% end %>
+</ul>
+
 
 <%= link_to "Add movie", new_list_bookmark_path(@list) %>
