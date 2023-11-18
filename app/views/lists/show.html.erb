@@ -9,6 +9,7 @@
       <%= image_tag bookmark.movie.poster_url, class:"img-thumbnail" %></image_tag>
       <li><%= bookmark.comment %></li>
     </div>
+     <%= cl_image_tag bookmark.photo.key, alt:"photo", height: 300, width: 400, crop: :fill %>
     <%= link_to "delete bookmark", bookmark_path(bookmark)%>
   <% end %>
 </ul>

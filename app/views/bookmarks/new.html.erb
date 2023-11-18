@@ -7,6 +7,7 @@
 <div class="container">
     <%= simple_form_for [@list, @bookmark] do |f| %>
         <%= f.input :comment %>
+        <%= f.input :photo, as: :file %>
         <%= f.association :movie, collection: Movie.all %>
         <%= f.submit "Submit bookmark", class: "btn btn-primary" %>
     <% end %>
