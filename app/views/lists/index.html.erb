@@ -1,22 +1,24 @@
 <div class="container">
-
-    <%= cl_image_tag "j4emzmibrqppcehc7rpd", alt:"boris", width: 400, height: 300, crop: :fill %>
-
-
-  <div class="container">
-    <h1>Save any kind movies</h1>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg);">
+    <h1>My Watch List</h1>
+    <p>Save any kind movies</p>
   </div>
 
+    <%# <%= cl_image_tag "cld-sample-2", alt:"picture montain", width: 400, height: 300, crop: :fill %>
 
-</div>
+   <%# <%= cl_image_path @bookmark.photo.key, alt:"photo", height: 300, width: 400, crop: :fill %>
 
-<h1>My List</h1>
 
-<ul>
-  <% @lists.each do |list| %>
-    <li><%= link_to list.name, list_path(list) %></li>
-  <% end %>
-</ul>
 
-<%= link_to "Create a new List", new_list_path %>
+  <div class="cards">
+    <h1>My List</h1>
+    <div class="card">
+      <% @lists.each do |list| %>
+      <div class="card-category">
+        <h2><%= link_to list.name, list_path(list) %></h2>
+      </div>
+      <% end %>
+     </div>
+    <%= link_to "Create a new List", new_list_path %>
+  </div>
 </div>

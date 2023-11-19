@@ -1,18 +1,19 @@
-<h1><%= @list.name %></h1>
+<div class="container mt-5">
+  <h1><%= @list.name %></h1>
+  <ul>
+    <% @list.bookmarks.each do |bookmark| %>
+      <div class="card-product">
+        <%= image_tag bookmark.movie.poster_url, class:"img-thumbnail", height: 100, width: 100 %></image_tag>
+        <div class="card-product-infos">
+          <h2><%= bookmark.movie.title %></h2>
+          <p><%= bookmark.comment %></p>
+          <%= link_to "Delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        </div>
+      </div>
+    <% end %>
+  </ul>
 
-<h2>Batman</h2>
+  <button class="btn btn-secondary"><%= link_to "Add  movie Bookmark", new_list_bookmark_path(@list) %></button>
 
-<ul>
-  <% @list.bookmarks.each do |bookmark| %>
-    <div>
-      <li><%= bookmark.movie.title %></li>
-      <%= image_tag bookmark.movie.poster_url, class:"img-thumbnail" %></image_tag>
-      <li><%= bookmark.comment %></li>
-    </div>
-     <%= cl_image_tag bookmark.photo.key, alt:"photo", height: 300, width: 400, crop: :fill %>
-    <%= link_to "delete bookmark", bookmark_path(bookmark)%>
-  <% end %>
-</ul>
-
-
-<%= link_to "Add movie", new_list_bookmark_path(@list) %>
+  <button class="btn btn-secondary"><%= link_to "Lists", lists_path %></button>
+</div>
